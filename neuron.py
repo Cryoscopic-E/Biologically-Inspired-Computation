@@ -6,6 +6,7 @@ class Neuron:
     - gives output based on activation function
 
     """
+
     def __init__(self, activation_function):
         self.__activation_function = activation_function
 
@@ -20,17 +21,3 @@ class Neuron:
 
         print(output)
         return output
-
-####++++ try with "activation function" to test ++++####
-# TODO: unittest for this class in other script + create folder Tests
-# def tangent(sums):
-#     return sums + 1
-#
-#
-# def main():
-#     neuron = Neuron(tangent)
-#     neuron.activate([1, 2], [0.1, 0.2])
-#
-#
-# if __name__ == "__main__":
-#     main()
