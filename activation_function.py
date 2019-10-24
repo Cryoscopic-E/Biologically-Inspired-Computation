@@ -27,3 +27,7 @@ class ActivationFunction:
     @staticmethod
     def gaussian(data):
         return np.exp(-((data ** 2) / 2))
+
+    @staticmethod
+    def identity(data):
+        return data
