@@ -32,6 +32,11 @@ class TestNeuronMethods(unittest.TestCase):
         n = Neuron(af.gaussian)
         self.assertEqual(n.activate([1, 2], [0.1, 0.2]), gaussian_expected_output)
 
+    def test_activation_function_identity(self):
+        identity_expected_output = [1, 2]
+        n = Neuron(af.identity)
+        self.assertEqual(n.activate_input_layer([1, 2]), identity_expected_output)
+
 
 if __name__ == '__main__':
     unittest.main()
