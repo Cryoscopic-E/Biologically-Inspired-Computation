@@ -2,7 +2,7 @@ from random import randrange, choice
 from neural_network import NeuralNetwork
 
 
-class Particle:
+class _Particle:
     def __init__(self, dimensions):
         self._positions = [randrange(-2.0, 2.0) for n in range(dimensions)]
         self._velocity = [randrange(-1.0, 1.0) for n in range(dimensions)]
@@ -51,7 +51,7 @@ class PSO:
     def __init__(self, swarm_size, dimensions, alpha, beta, gamma, delta):
         self.global_best_positions = None
         self.dimensions = dimensions
-        self.particles = [Particle(dimensions) for n in range(swarm_size)]
+        self.particles = [_Particle(dimensions) for n in range(swarm_size)]
         self.init_informants_rnd()
         self.alpha = alpha
         self.beta = beta
