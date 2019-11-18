@@ -52,10 +52,11 @@ class NeuralNetwork:
         return inputs_vector
 
     @staticmethod
-    def feedforward(self):
+    def feedforward(self, desired_output):
         first = self.activate(self.input_layer, self.input_to_hidden_weights)
         second = self.activate(first, self.hidden_to_output_weights)
-        return first, second
+        mse = self.mse(second, desired_output)
+        return first, second, mse
 
 
 
