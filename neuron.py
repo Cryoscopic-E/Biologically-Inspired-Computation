@@ -9,3 +9,6 @@ class Neuron:
 
     def __init__(self, activation_function):
         self.__activation_function = activation_function
+
+    def fire(self, val):
+        return self.__activation_function(val)

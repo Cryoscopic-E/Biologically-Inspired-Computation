@@ -9,6 +9,11 @@ class ActivationFunction:
     """
 
     @staticmethod
+    def step(data):
+        """Logistic or Binary step function [0,1]"""
+        return 0 if data < 0 else 1
+
+    @staticmethod
     def null(data):
         return 0
 
