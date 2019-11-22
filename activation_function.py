@@ -9,6 +9,15 @@ class ActivationFunction:
     """
 
     @staticmethod
+    def soft_sign(data):
+        return data / (1 + abs(data))
+
+    @staticmethod
+    def step(data):
+        """Logistic or Binary step function [0,1]"""
+        return 0 if data < 0 else 1
+
+    @staticmethod
     def null(data):
         return 0
 

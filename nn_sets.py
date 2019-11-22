@@ -1,3 +1,16 @@
+import numpy as np
+
+
+def get_in_out_from_file(txt_file):
+    f = open(txt_file, "r")
+    lines = f.readlines()
+    data = []
+    for line in lines:
+        row_split = line.split()
+        data.append(row_split)
+    return np.array(data, dtype=float)
+
+
 class NNSets:
     """
     This class takes the array of inputs read from file and create:
@@ -6,15 +19,17 @@ class NNSets:
     Using the data provided and split (by default) 70% to training set and 30% to test set.
     """
 
-    def __init__(self, data):
+    def __init__(self, data_file):
         self.training_set = list()
         self.test_set = list()
-        self.split_inputs(data)
+        data = get_in_out_from_file(data_file)
+        self.split_ad_randomize_inputs(data)
 
-    def split_inputs(self, data):
+    def split_ad_randomize_inputs(self, data, seed=19):
+        np.random.seed(seed)
+        np.random.shuffle(data)
         inputs_length = len(data)
         training_length = int(.7 * inputs_length)
-
         for _input in data:
             _i = _input[:len(_input) - 1] if len(_input) > 2 else _input[0]
             _o = _input[len(_input) - 1]
@@ -33,14 +48,8 @@ class NNSets:
 class _IOSet:
 
     def __init__(self, inputs, output):
-        self.inputs = inputs
-        self.output = output
+        self.input = np.array(inputs)
+        self.output = np.array(output)
 
     def __repr__(self):
-        return f"\nInputs : {self.inputs}\nOutput : {self.output}\n"
-
-# sets = NNSets(d_inputs)
-# print("TRAINING SET")
-# print(sets.get_training_set())
-# print("TEST SET")
-# print(sets.get_test_set())
+        return f"\nInput : {self.input}\nOutput : {self.output}\n"
