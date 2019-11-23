@@ -232,8 +232,8 @@ class PSO:
         ff = self.neural_network.feed_forward(weights, af, bias, self.test_sets)
         outs = ff["outputs"].ravel()
 
-        # 1 input
-        if len(self.test_sets[0].input) > 1:
+        # 2 input
+        if self.test_sets[0].input.size > 1:
             in1 = []
             in2 = []
             exp = []
@@ -253,7 +253,7 @@ class PSO:
             ax.set_ylabel('x2')
             ax.set_zlabel('y')
             plt.show()
-        # 2 inputs
+        # 1 inputs
         else:
             ins = []
             exp = []
@@ -270,9 +270,9 @@ class PSO:
 
 # UNCOMMENT FOR TESTING
 # if __name__ == "__main__":
-# sets = NNSets("./Data/2in_complex.txt")
+# sets = NNSets("./Data/1in_linear.txt")
 # nn = NeuralNetwork(sets.training_set)
-# nn.create_layer(2, ActivationFunction.identity, 'input')
+# nn.create_layer(1, ActivationFunction.identity, 'input')
 # nn.create_layer(4, ActivationFunction.sigmoid, 'hidden')
 # nn.create_layer(1, ActivationFunction.step, 'output')
 # pso = PSO(sets, 200, nn, 30, 1, 2, 1, 0)
