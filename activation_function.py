@@ -1,5 +1,6 @@
-import numpy as np
 from math import cos
+from math import tanh
+from math import exp
 
 
 class ActivationFunction:
@@ -23,11 +24,11 @@ class ActivationFunction:
 
     @staticmethod
     def sigmoid(data):
-        return 1 / (1 + np.exp(-data))
+        return 1 / (1 + exp(-data))
 
     @staticmethod
     def hyperbolic_tangent(data):
-        return np.tanh(data)
+        return tanh(data)
 
     @staticmethod
     def cosine(data):
@@ -35,7 +36,7 @@ class ActivationFunction:
 
     @staticmethod
     def gaussian(data):
-        return np.exp(-((data ** 2) / 2))
+        return exp(-((data ** 2) / 2))
 
     @staticmethod
     def identity(data):

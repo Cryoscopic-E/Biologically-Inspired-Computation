@@ -2,6 +2,11 @@ import numpy as np
 
 
 def get_in_out_from_file(txt_file):
+    """
+    Load inputs and outputs from txt file
+    :param txt_file: text file name
+    :return:
+    """
     f = open(txt_file, "r")
     lines = f.readlines()
     data = []
@@ -19,17 +24,25 @@ class NNSets:
     Using the data provided and split (by default) 70% to training set and 30% to test set.
     """
 
-    def __init__(self, data_file):
+    def __init__(self, data_file, split_percentage=70):
         self.training_set = list()
         self.test_set = list()
         data = get_in_out_from_file(data_file)
-        self.split_ad_randomize_inputs(data)
+        self.split_ad_randomize_inputs(data, split_percentage)
 
-    def split_ad_randomize_inputs(self, data, seed=19):
-        np.random.seed(seed)
+    def split_ad_randomize_inputs(self, data, split_percentage, seed=19):
+        """
+        Randomize data position in array and split as training set and test set
+
+        :param data: data from text file
+        :param split_percentage: amount to split from original data array as training set (default 70%)
+        :param seed: seed to use for consistency of data trough experiments (to use uncomment)
+        :return:
+        """
+        # np.random.seed(seed)
         np.random.shuffle(data)
         inputs_length = len(data)
-        training_length = int(.7 * inputs_length)
+        training_length = int((split_percentage / 100.0) * inputs_length)
         for _input in data:
             _i = _input[:len(_input) - 1] if len(_input) > 2 else _input[0]
             _o = _input[len(_input) - 1]
@@ -46,6 +59,9 @@ class NNSets:
 
 
 class _IOSet:
+    """
+    Set class holding inputs and respective outputs
+    """
 
     def __init__(self, inputs, output):
         self.input = np.array(inputs)
