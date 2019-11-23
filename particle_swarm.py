@@ -216,8 +216,10 @@ class PSO:
 
             bar.next()
         bar.finish()
+        fig = plt.figure()
         plt.plot(x, y)
         plt.show()
+        fig.savefig("mse_error.jpg")
 
     def predict(self):
         """
@@ -253,6 +255,7 @@ class PSO:
             ax.set_ylabel('x2')
             ax.set_zlabel('y')
             plt.show()
+            fig.savefig("predict.jpg")
         # 1 inputs
         else:
             ins = []
@@ -263,9 +266,11 @@ class PSO:
             print("\tInput\t|\tOutput\t|\tExpected\t")
             for n in range(len(outs)):
                 print(f"\t{ins[n]}\t|\t{outs[n]:.4f}\t|\t{exp[n]}")
+            fig = plt.figure()
             plt.scatter(ins, outs)
             plt.scatter(ins, exp)
             plt.show()
+            fig.savefig("predict.jpg")
         pass
 
 # UNCOMMENT FOR TESTING

@@ -259,7 +259,7 @@ def insert_graph_and_run_application():
     except ValueError:
         x5 = 0
 
-    var = draw_input[::-1]
+    var = draw_input
     var.append(1)
     x_input = [x1, x2, x3, x4, x5]
 
@@ -349,8 +349,8 @@ def insert_graph_and_run_application():
     draw.append(n_neurons)
     for i in var:
         draw.append(i)
-
-    ann = DrawANN(draw)
+    var = draw[::-1]
+    ann = DrawANN(var)
     ann.draw_ann()
     img_arr = mpimg.imread('ann.jpg')
     figure1 = Figure(figsize=(14, 13), dpi=33)
