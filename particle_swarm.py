@@ -268,18 +268,17 @@ class PSO:
             plt.show()
         pass
 
-
 # UNCOMMENT FOR TESTING
-if __name__ == "__main__":
-    sets = NNSets("./Data/2in_complex.txt")
-    nn = NeuralNetwork(sets.training_set)
-    nn.create_layer(2, ActivationFunction.identity, 'input')
-    nn.create_layer(4, ActivationFunction.sigmoid, 'hidden')
-    nn.create_layer(1, ActivationFunction.step, 'output')
-    pso = PSO(sets, 200, nn, 30, 1, 2, 1, 0)
-    pso.fit()
-    print("Best fitness val", pso.global_best_fit)
-    print("Best Weights positions", pso.global_best_particle.best_positions_weights)
-    print("Best Weights af", pso.global_best_particle.best_positions_weights)
-    print("Best Weights bias", pso.global_best_particle.best_positions_weights)
-    pso.predict()
+# if __name__ == "__main__":
+# sets = NNSets("./Data/2in_complex.txt")
+# nn = NeuralNetwork(sets.training_set)
+# nn.create_layer(2, ActivationFunction.identity, 'input')
+# nn.create_layer(4, ActivationFunction.sigmoid, 'hidden')
+# nn.create_layer(1, ActivationFunction.step, 'output')
+# pso = PSO(sets, 200, nn, 30, 1, 2, 1, 0)
+# pso.fit()
+# print("Best fitness val", pso.global_best_fit)
+# print("Best Weights positions", pso.global_best_particle.best_positions_weights)
+# print("Best Weights af", pso.global_best_particle.best_positions_weights)
+# print("Best Weights bias", pso.global_best_particle.best_positions_weights)
+# pso.predict()
