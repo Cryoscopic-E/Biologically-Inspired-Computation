@@ -78,8 +78,12 @@ def main():
                                          "\t"+ str(ins[0]) +"\t|\t" + str(outs[0]) + "\t|\t" + str(exp[0]),
                                          "\n", "\t"+ str(ins[1]) +"\t|\t" + str(outs[1]) + "\t|\t" + str(exp[1]),
                                          "\n", "\t"+ str(ins[2]) +"\t|\t" + str(outs[2]) + "\t|\t" + str(exp[2]),
-                                         "\n", "\t"+ str(ins[3]) +"\t|\t" + str(outs[3]) + "\t|\t" + str(exp[2]),
-                                         "\n", "\t"+ str(ins[4]) +"\t|\t" + str(outs[4]) + "\t|\t" + str(exp[4])])
+                                         "\n", "\t"+ str(ins[3]) +"\t|\t" + str(outs[3]) + "\t|\t" + str(exp[3]),
+                                         "\n", "\t"+ str(ins[4]) +"\t|\t" + str(outs[4]) + "\t|\t" + str(exp[4]),
+                                         "\n", "\t"+ str(ins[5]) +"\t|\t" + str(outs[5]) + "\t|\t" + str(exp[5]),
+                                         "\n", "\t"+ str(ins[6]) +"\t|\t" + str(outs[6]) + "\t|\t" + str(exp[6]),
+                                         "\n", "\t"+ str(ins[7]) +"\t|\t" + str(outs[7]) + "\t|\t" + str(exp[7]),
+                                         "\n", "\t"+ str(ins[8]) +"\t|\t" + str(outs[8]) + "\t|\t" + str(exp[8])])
                         file.close()
                         print("done")
 
@@ -121,7 +125,10 @@ def main():
                                      "\n", "\t" + str(in1[2]) + "\t|\t" + str(in2[2]) + "\t|\t" + str(outs[2]) + "\t|\t" + str(exp[2]),
                                      "\n", "\t" + str(in1[3]) + "\t|\t" + str(in2[3]) + "\t|\t" + str(outs[3]) + "\t|\t" + str(exp[3]),
                                      "\n", "\t" + str(in1[4]) + "\t|\t" + str(in2[4]) + "\t|\t" + str(outs[4]) + "\t|\t" + str(exp[4]),
-                                     "\t{in1[0}\t|\t{in2[0]}\t|\t{outs[0]:.4f}\t|\t{exp[0]}"])
+                                     "\n", "\t" + str(in1[5]) + "\t|\t" + str(in2[5]) + "\t|\t" + str(outs[5]) + "\t|\t" + str(exp[5]),
+                                     "\n", "\t" + str(in1[6]) + "\t|\t" + str(in2[6]) + "\t|\t" + str(outs[6]) + "\t|\t" + str(exp[6]),
+                                     "\n", "\t" + str(in1[7]) + "\t|\t" + str(in2[7]) + "\t|\t" + str(outs[7]) + "\t|\t" + str(exp[7]),
+                                     "\n", "\t" + str(in1[8]) + "\t|\t" + str(in2[8]) + "\t|\t" + str(outs[8]) + "\t|\t" + str(exp[8])])
                     file.close()
                     print("done")
 
