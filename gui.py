@@ -18,7 +18,7 @@ style.use("ggplot")
 root = tk.Tk()
 
 # create a gui 1400*450
-canvas1 = tk.Canvas(root, width=1400, height=450)
+canvas1 = tk.Canvas(root, width=1000, height=450)
 canvas1.pack()
 
 # create a canvas image to place the background image
@@ -129,7 +129,16 @@ def add_box_5():
     Add a box (layer) to the existing ANN architecture
     :return:
     """
-    canvas1.create_window(650, 250, window=layer5, anchor="w")
+    def remove_box():
+        button85.destroy()
+        act_func_1.destroy()
+        canvas1.delete(w5)
+
+    # remove layer button
+    button85 = tk.Button(root, text='-', fg="Red", command=remove_box)
+    canvas1.create_window(570, 250, window=button85, anchor="w")
+
+    w5 = canvas1.create_window(650, 250, window=layer5, anchor="w")
     activation_fun = ['-', 'Null', 'Sigmoid', 'Hyperbolic tangent', 'Cosine', 'Gaussian']
     act_func5.set(activation_fun[0])  # default value
     act_func_1 = tk.OptionMenu(canvas1, act_func5, *activation_fun)
@@ -141,12 +150,24 @@ def add_box_4():
     Add a box (layer) to the existing ANN architecture
     :return:
     """
-    canvas1.create_window(650, 220, window=layer4, anchor="w")
-    button6 = tk.Button(root, text='Add Layer', fg="Red", command=add_box_5)
-    canvas1.create_window(550, 220, window=button6, anchor="w")
-    activation_fun = [
-        '-', 'Null', 'Sigmoid', 'Hyperbolic tangent', 'Cosine', 'Gaussian'
-    ]
+
+    def remove_box():
+        button7.destroy()
+        button75.destroy()
+        act_func_1.destroy()
+        canvas1.delete(w4)
+
+    w4 = canvas1.create_window(650, 220, window=layer4, anchor="w")
+
+    # add layer button
+    button7 = tk.Button(root, text='+', fg="Green", command=add_box_5)
+    canvas1.create_window(600, 220, window=button7, anchor="w")
+
+    # remove layer button
+    button75 = tk.Button(root, text='-', fg="Red", command=remove_box)
+    canvas1.create_window(570, 220, window=button75, anchor="w")
+
+    activation_fun = ['-', 'Null', 'Sigmoid', 'Hyperbolic tangent', 'Cosine', 'Gaussian']
     act_func4.set(activation_fun[0])  # default value
     act_func_1 = tk.OptionMenu(canvas1, act_func4, *activation_fun)
     canvas1.create_window(820, 220, window=act_func_1, anchor="w")
@@ -157,9 +178,23 @@ def add_box_3():
     Add a box (layer) to the existing ANN architecture
     :return:
     """
-    canvas1.create_window(650, 190, window=layer3, anchor="w")
-    button6 = tk.Button(root, text='Add Layer', fg="Red", command=add_box_4)
-    canvas1.create_window(550, 190, window=button6, anchor="w")
+
+    def remove_box():
+        button6.destroy()
+        button65.destroy()
+        act_func_1.destroy()
+        canvas1.delete(w3)
+
+    w3 = canvas1.create_window(650, 190, window=layer3, anchor="w")
+
+    # add layer button
+    button6 = tk.Button(root, text='+', fg="Green", command=add_box_4)
+    canvas1.create_window(600, 190, window=button6, anchor="w")
+
+    # remove layer button
+    button65 = tk.Button(root, text='-', fg="Red", command=remove_box)
+    canvas1.create_window(570, 190, window=button65, anchor="w")
+
     activation_fun = ['-', 'Null', 'Sigmoid', 'Hyperbolic tangent', 'Cosine', 'Gaussian']
     act_func3.set(activation_fun[0])  # default value
     act_func_1 = tk.OptionMenu(canvas1, act_func3, *activation_fun)
@@ -171,10 +206,24 @@ def add_box_2():
     Add a box (layer) to the existing ANN architecture
     :return:
     """
-    canvas1.create_window(650, 160, window=layer2, anchor="w")
-    button5 = tk.Button(root, text='Add Layer', fg="Red",
-                        command=add_box_3)
-    canvas1.create_window(550, 160, window=button5, anchor="w")
+
+    def remove_box():
+        button5.destroy()
+        button55.destroy()
+        act_func_1.destroy()
+        canvas1.delete(w2)
+
+    w2 = canvas1.create_window(650, 160, window=layer2, anchor="w")
+
+    # add layer button
+    button5 = tk.Button(root, text='+', fg="Green", command=add_box_3)
+    canvas1.create_window(600, 160, window=button5, anchor="w")
+
+    # remove layer button
+    button55 = tk.Button(root, text='-', fg="Red", command=remove_box)
+    canvas1.create_window(570, 160, window=button55, anchor="w")
+
+    # activation function button
     activation_fun = ['-', 'Null', 'Sigmoid', 'Hyperbolic tangent', 'Cosine', 'Gaussian']
     act_func2.set(activation_fun[0])  # default value
     act_func_1 = tk.OptionMenu(canvas1, act_func2, *activation_fun)
@@ -187,30 +236,52 @@ def add_box():
     Add the possibility to select the dataset to use
     :return:
     """
-    canvas1.create_window(650, 130, window=layer1, anchor="w")
-    button4 = tk.Button(root, text='Add Layer', fg="Red", command=add_box_2)
-    canvas1.create_window(550, 130, window=button4, anchor="w")
-    activation_fun = ['-', 'Null', 'Sigmoid', 'Hyperbolic tangent', 'Cosine', 'Gaussian']
 
+    def remove_box():
+        button45.destroy()
+        button4.destroy()
+        act_func_1.destroy()
+        canvas1.delete(w1)
+
+    w1 = canvas1.create_window(650, 130, window=layer1, anchor="w")
+
+    # add layer button
+    button4 = tk.Button(root, text='+', fg="Green", command=add_box_2)
+    canvas1.create_window(600, 130, window=button4, anchor="w")
+
+    # remove layer button
+    button45 = tk.Button(root, text='-', fg="Red", command=remove_box)
+    canvas1.create_window(570, 130, window=button45, anchor="w")
+
+    # activation function button
+    activation_fun = ['-', 'Null', 'Sigmoid', 'Hyperbolic tangent', 'Cosine', 'Gaussian']
     act_func1.set(activation_fun[0])  # default value
     act_func_1 = tk.OptionMenu(canvas1, act_func1, *activation_fun)
     canvas1.create_window(820, 130, window=act_func_1, anchor="w")
 
-    # Type of dataset to use
-    canvas1.create_rectangle(1000, 7, 1300, 45, fill='lightblue')
 
-    canvas1.create_text(1010, 25, text="Which function to approximate? ", anchor="w", fill="blue")
-    canvas1.create_text(1011, 25, text="Which function to approximate? ", anchor="w", fill="red")
 
-    dataset = ['-', 'Linear', 'Cubic', 'Sine', 'Tanh', 'Complex', 'Xor']
 
-    data_selected.set(dataset[0])  # default value
-    data_selected_1 = tk.OptionMenu(canvas1, data_selected, *dataset)
-    canvas1.create_window(1010, 70, window=data_selected_1, anchor="w")
+
 
 # button to start building the ANN architecture
 button3 = tk.Button(root, text='Start!', fg="Red", command=add_box, anchor="w")
 canvas1.create_window(700, 90, window=button3)
+
+# Type of dataset to use
+canvas1.create_rectangle(530, 290, 940, 380, fill='lightblue')
+
+canvas1.create_text(610, 305, text="Which function to approximate? ", anchor="w", fill="blue")
+canvas1.create_text(611, 305, text="Which function to approximate? ", anchor="w", fill="red")
+canvas1.create_text(540, 335, text="This parameter will affects the dataset used to train and test the ANN", anchor="w", width="410")
+
+dataset = ['-', 'Linear', 'Cubic', 'Sine', 'Tanh', 'Complex', 'Xor']
+
+data_selected.set(dataset[0])  # default value
+data_selected_1 = tk.OptionMenu(canvas1, data_selected, *dataset)
+canvas1.create_window(670, 360, window=data_selected_1, anchor="w")
+
+
 
 
 def insert_graph_and_run_application():
@@ -341,8 +412,8 @@ def insert_graph_and_run_application():
     print("Best Weights bias", pso.global_best_particle.best_positions_weights)
     pso.predict()
 
-    # --------------- GRAPHS -----------------
-
+    # # --------------- GRAPHS -----------------
+    #
     # GRAPH ONE
     draw = []
 
@@ -352,31 +423,31 @@ def insert_graph_and_run_application():
     var = draw[::-1]
     ann = DrawANN(var)
     ann.draw_ann()
-    img_arr = mpimg.imread('ann.jpg')
-    figure1 = Figure(figsize=(14, 13), dpi=33)
-    subplot = figure1.add_subplot(111)
-    subplot.axis('off')
-    subplot.imshow(img_arr)
-    canvas1 = FigureCanvasTkAgg(figure1, master=root)
-    canvas1._tkcanvas.pack(side="left", fill="both", expand=0)
-
-    # GRAPH TWO
-    img_arr1 = mpimg.imread('predict.jpg')
-    figure2 = Figure(figsize=(14, 13), dpi=33)
-    subplot = figure2.add_subplot(111)
-    subplot.axis('off')
-    subplot.imshow(img_arr1)
-    canvas1 = FigureCanvasTkAgg(figure2, master=root)
-    art = canvas1._tkcanvas.pack(side="right", fill="both", expand=0)
-
-    # GRAPH THREE
-    img_arr2 = mpimg.imread('mse_error.jpg')
-    figure3 = Figure(figsize=(14, 13), dpi=34)
-    subplot = figure3.add_subplot(111)
-    subplot.axis('off')
-    subplot.imshow(img_arr2)
-    canvas1 = FigureCanvasTkAgg(figure3, master=root)
-    canvas1._tkcanvas.pack(side="right", fill="both", expand=0)
+    # img_arr = mpimg.imread('ann.jpg')
+    # figure1 = Figure(figsize=(14, 13), dpi=33)
+    # subplot = figure1.add_subplot(111)
+    # subplot.axis('off')
+    # subplot.imshow(img_arr)
+    # canvas1 = FigureCanvasTkAgg(figure1, master=root)
+    # canvas1._tkcanvas.pack(side="left", fill="both", expand=0)
+    #
+    # # GRAPH TWO
+    # img_arr1 = mpimg.imread('predict.jpg')
+    # figure2 = Figure(figsize=(14, 13), dpi=33)
+    # subplot = figure2.add_subplot(111)
+    # subplot.axis('off')
+    # subplot.imshow(img_arr1)
+    # canvas1 = FigureCanvasTkAgg(figure2, master=root)
+    # art = canvas1._tkcanvas.pack(side="right", fill="both", expand=0)
+    #
+    # # GRAPH THREE
+    # img_arr2 = mpimg.imread('mse_error.jpg')
+    # figure3 = Figure(figsize=(14, 13), dpi=34)
+    # subplot = figure3.add_subplot(111)
+    # subplot.axis('off')
+    # subplot.imshow(img_arr2)
+    # canvas1 = FigureCanvasTkAgg(figure3, master=root)
+    # canvas1._tkcanvas.pack(side="right", fill="both", expand=0)
 
 
 button2 = tk.Button(root, text='Click to Train the ANN!', command=insert_graph_and_run_application, anchor="w")
