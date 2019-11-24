@@ -272,6 +272,7 @@ class PSO:
             plt.show()
             fig.savefig("predict.jpg")
         pass
+        return outs
 
 # UNCOMMENT FOR TESTING
 # if __name__ == "__main__":
