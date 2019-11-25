@@ -276,7 +276,6 @@ class PSO:
             plt.scatter(ins, exp)
             plt.show()
             fig.savefig("predict.jpg")
-        pass
         return outs
 
 # UNCOMMENT FOR TESTING
