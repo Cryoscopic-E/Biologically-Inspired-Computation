@@ -30,13 +30,12 @@ canvas1.create_image(650, 200, image=image1)
 button1 = tk.Button(root, text='Exit Application', command=root.destroy)
 canvas1.create_window(85, 400, window=button1)
 
-
 """ 
 PSO: create all the widgets needed to modify the PSO
 """
 
 # create box under description
-canvas1.create_rectangle(35, 5, 480, 205, fill='lightblue')
+canvas1.create_rectangle(35, 5, 520, 205, fill='lightblue')
 
 # add title
 canvas1.create_text(100, 15, text="Particle Swarm Optimisation", anchor="w", fill="blue")
@@ -129,6 +128,7 @@ def add_box_5():
     Add a box (layer) to the existing ANN architecture
     :return:
     """
+
     def remove_box():
         button85.destroy()
         act_func_1.destroy()
@@ -260,10 +260,6 @@ def add_box():
     canvas1.create_window(820, 130, window=act_func_1, anchor="w")
 
 
-
-
-
-
 # button to start building the ANN architecture
 button3 = tk.Button(root, text='Start!', fg="Red", command=add_box, anchor="w")
 canvas1.create_window(700, 90, window=button3)
@@ -280,8 +276,6 @@ dataset = ['-', 'Linear', 'Cubic', 'Sine', 'Tanh', 'Complex', 'Xor']
 data_selected.set(dataset[0])  # default value
 data_selected_1 = tk.OptionMenu(canvas1, data_selected, *dataset)
 canvas1.create_window(670, 360, window=data_selected_1, anchor="w")
-
-
 
 
 def insert_graph_and_run_application():
@@ -333,7 +327,6 @@ def insert_graph_and_run_application():
     var = draw_input
     var.append(1)
     x_input = [x1, x2, x3, x4, x5]
-
 
     # load all the datasets in 6 variables
     sets_linear = NNSets("./Data/1in_linear.txt")

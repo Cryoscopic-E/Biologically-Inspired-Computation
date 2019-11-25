@@ -161,6 +161,11 @@ class PSO:
         return self.neural_network.feed_forward(weights, af, bias, _set)["mse"]
 
     def fit(self):
+        """
+        Fit the particle swarm by calculating each iteration the fitness(NN mse) and updating the global best particle
+        until the end of the epoch set, and updating the particles' positions
+        Each epoch the fitness of the global best particle if plotted
+        """
         # GLOBAL MSE PLOT VARIABLES INIT
         ###############################################
         k = 0
@@ -200,7 +205,7 @@ class PSO:
 
             # Update each particle's informant
             for particle in self.particles:
-                particle.set_informant(sample(self.particles, 4))  # TODO change to random number of sample
+                particle.set_informant(sample(self.particles, 4))
 
             # UPDATE GLOBAL BEST FITNESS PLOT VARIABLES
             ################################################
@@ -272,6 +277,7 @@ class PSO:
             plt.show()
             fig.savefig("predict.jpg")
         pass
+        return outs
 
 # UNCOMMENT FOR TESTING
 # if __name__ == "__main__":
